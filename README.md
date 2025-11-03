@@ -27,6 +27,8 @@ More informtion regarding installation is available in the official metasploit w
 # Use cases
 The demonstration shown here is done in a virtual box environment running Kali Linux and Metasploitable2 running in the same network.
 
+To get details on the commands and other key functionalities run the help command whe inside the msfconsole.
+
 Metasploitable2 is a intentionally vulnerable machine made by Rapid7 so that users can test and run the metasploit tool for demonstration purposes.
 The official link to download metasploitable2 is: https://www.rapid7.com/products/metasploit/metasploitable/
 
