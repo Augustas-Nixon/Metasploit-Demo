@@ -409,6 +409,8 @@ The username daemon@metasploitable suggests that we are not the root user but a 
 
 Step 8 : Using another exploit to gain system access  (vsftpd)
 
+The exploit related vulnerability details are available in the site : https://www.cvedetails.com/cve/CVE-2011-2523/
+
 In a new terminal run the nmap scan 
 
 ```
@@ -451,7 +453,7 @@ Nmap done: 1 IP address (1 host up) scanned in 12.70 seconds
 
 From the scan result it is seen that port 21 is open, this port is used by ftp service and the version used is vsftpd 2.3.4, this version has a backdoor which we can exploit to gain root access of the system.
 
-Step 9 : Search and use the required module for exploitation
+###### Step 9 : Search and use the required module for exploitation ######
 
 ```
 msf6 > search vsftpd
