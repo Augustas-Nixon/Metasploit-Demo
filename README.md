@@ -1,5 +1,5 @@
 # Metasploit-Demo
-This repo is created to demonstrate the working and installation steps for Metasploit tool created by Rapid7, the repo will cover the use cases, test scenarios and other configuration steps needed for the proper setup and working of the tool.
+This repo is created to demonstrate the installation steps and a working demo for the Metasploit tool created by Rapid7, the repo will cover the use cases, test scenarios and other configuration steps needed for the proper setup and working of the tool.
 
 # Metasploit Framework
 Metasploit Framework is an open-source project maintained by Rapid7 and the community. It provides a large collection of exploits, payloads (including Meterpreter), encoders, tools like msfconsole and msfvenom, and a platform for writing and testing new modules.
@@ -24,13 +24,20 @@ chmod 755 msfinstall && \
 
 More informtion regarding installation is available in the official metasploit website: https://docs.metasploit.com/docs/using-metasploit/getting-started/nightly-installers.html#installing-metasploit-on-linux--macos
 
-# Use cases
-The demonstration shown here is done in a virtual box environment running Kali Linux and Metasploitable2 running in the same network.
-
-To get details on the commands and other key functionalities run the help command whe inside the msfconsole.
-
+# Installing Metasploitable2
 Metasploitable2 is a intentionally vulnerable machine made by Rapid7 so that users can test and run the metasploit tool for demonstration purposes.
 The official link to download metasploitable2 is: https://www.rapid7.com/products/metasploit/metasploitable/
+
+The downloaded file will be a zip file named metasploitable-linux-2.0.0.zip, on extracting the file inside the folder there will a "Metasploitable.vmbk" file which can be used to create the virtual machine inside VirtualBox.
+
+The default credentials of the metasploitable2 machine are:
+username : msfadmin
+password : msfadmin
+
+# Use cases
+The demonstration shown here is done in a virtual box environment having Kali Linux and Metasploitable2 running in the same network.
+
+To get details on the commands and other key functionalities, run the help command when inside the msfconsole.
 
 The directory where the scripts, payloads, exploits and other files used by metasploit are present in is in the location /usr/share/metasploit-framework/
 
@@ -629,4 +636,5 @@ statd:*:15474:0:99999:7:::
 
 On setting the required paramters required for the exploit and running the exploit, a reverse shell access is given and on checking the user it is seen that e have got access as the root user, an example to prove this is that when running the cat /etc/shadow command we re getting the shadow file which ususally stores the users in a ystem, along with their hashed password, this operation can only be performed by a root user and no other user can display the /etc/shadow file.
 
-
+# Points to note
+1. The Kali Linux machine and the metaploitable machine have to be in the same newtwork so that communication between them is possible, an easy wasy to check this is to ping from one machine to the other and check whether pinging is working properly.
