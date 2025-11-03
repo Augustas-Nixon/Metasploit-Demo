@@ -55,7 +55,7 @@ auxiliary  encoders  evasion  exploits  nops  payloads  post  README.md
 
 Below are the steps performed for the demonstration:
 
-Step 1 : Start Kali linux and Metasploitable 2 in the Virtual Machine.
+#### Step 1 : Start Kali linux and Metasploitable 2 in the Virtual Machine. ####
 
 Step 2 : Ensure that both the virtual machines are connected to the same network.
 
