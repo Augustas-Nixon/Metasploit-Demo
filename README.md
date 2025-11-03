@@ -55,11 +55,11 @@ auxiliary  encoders  evasion  exploits  nops  payloads  post  README.md
 
 Below are the steps performed for the demonstration:
 
-#### Step 1 : Start Kali linux and Metasploitable 2 in the Virtual Machine. ####
+### Step 1 : Start Kali linux and Metasploitable 2 in the Virtual Machine ###
 
-Step 2 : Ensure that both the virtual machines are connected to the same network.
+### Step 2 : Ensure that both the virtual machines are connected to the same network ###
 
-Step 3 : After ensuring that both the machines are up, open the Kali Linux terminal and run a nmap scan to find the ip address of the corresponding metasploitable system 
+### Step 3 : After ensuring that both the machines are up, open the Kali Linux terminal and run a nmap scan to find the ip address of the corresponding metasploitable system ###
 
 ```
 nmap -sn 192.168.100.0/24
@@ -84,7 +84,7 @@ Nmap done: 256 IP addresses (5 hosts up) scanned in 2.14 seconds
 ```
 From the above output we have got the IP address of the metasploitable machine as 192.168.100.7, this will be the target machine on which we will perform the attack.
 
-Step 4 : Run nmap to check the open ports and their versions to get an idea of available software running in the machine.
+### Step 4 : Run nmap to check the open ports and their versions to get an idea of available software running in the machine ###
 
 ```
  ┌──(kali㉿kali)-[~]
@@ -124,7 +124,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 12.70 seconds
 ```
 
-Step 5: Running metasploit in the system
+### Step 5: Running metasploit in the system ###
 
 ```
 ┌──(kali㉿kali)-[~]
@@ -159,7 +159,7 @@ msf6 >
 ```
 This shows that we have gained access to the console.
 
-Step 5 : Using an exploit
+### Step 6 : Using an exploit ###
 
 An exploit is used to take advantage of a vulnerability, out of the many vulneriabilites in the metasploit machine, we have chosen to take advantage of the distcc vulnerability.
 
@@ -207,7 +207,7 @@ The expolit used above is the distcc_exec vulneribilty, more information on the 
 
 distcc is a tool that enhances the compilation process by utilizing the idle processing power of other computers in the network. When distcc is set up on a machine, this machine is capable of distributing its compilation tasks to another system.
 
-Step 6 : Setting up the required parameters to run the exploit
+### Step 7 : Setting up the required parameters to run the exploit ###
 
 ```
 msf6 exploit(unix/misc/distcc_exec) > set RHOST 192.168.100.7
@@ -290,7 +290,7 @@ References:
 View the full module info with the info -d command.
 ```
 
-Step 7 : Using the exploit
+### Step 8 : Using the exploit ###
 
 ```
 msf6 exploit(unix/misc/distcc_exec) > 
@@ -407,7 +407,7 @@ From the above snippet, a shell has been spawned where standard linux commands s
 
 The username daemon@metasploitable suggests that we are not the root user but a user named daemon.
 
-Step 8 : Using another exploit to gain system access  (vsftpd)
+### Step 9 : Using another exploit to gain system access  (vsftpd) ###
 
 The exploit related vulnerability details are available in the site : https://www.cvedetails.com/cve/CVE-2011-2523/
 
@@ -453,7 +453,7 @@ Nmap done: 1 IP address (1 host up) scanned in 12.70 seconds
 
 From the scan result it is seen that port 21 is open, this port is used by ftp service and the version used is vsftpd 2.3.4, this version has a backdoor which we can exploit to gain root access of the system.
 
-###### Step 9 : Search and use the required module for exploitation ######
+### Step 10 : Search and use the required module for exploitation ###
 
 ```
 msf6 > search vsftpd
@@ -530,7 +530,7 @@ View the full module info with the info, or info -d command.
 ```
 
 
-Step 10 : Using the exploit
+### Step 11 : Using the exploit ###
 
 ```
 msf6 exploit(unix/ftp/vsftpd_234_backdoor) > set RHOST 192.168.100.7
